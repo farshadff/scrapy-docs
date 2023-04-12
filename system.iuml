@@ -1,0 +1,19 @@
+@startuml
+!include /puml-theme-blueprint.puml
+
+scale 2000*2000
+
+box "Go lang project" #LightBlue
+end box
+
+participant "SerpAPI" as SerpAPI
+participant "Apollo.io" as ApolloAPI
+
+User -> Golang: Send request with parameters
+Golang -> SerpAPI: Search for data
+SerpAPI -> Golang: Return data
+Golang -> MongoDB: Store data in collection1
+Golang -> ApolloAPI: Get companies' people information
+ApolloAPI -> Golang: Return companies' people information
+Golang -> MongoDB: Store filtered data in collection2
+@enduml
